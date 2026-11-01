@@ -1,0 +1,33 @@
+{
+  "name": "steam-deals-discord",
+  "version": "1.0.0",
+  "description": "Automated Steam deals notification to Discord channel via Webhook and GitHub Actions",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "keywords": [
+    "steam",
+    "deals",
+    "discord",
+    "webhook",
+    "github-actions",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "^5.0.5",
+    "vitest": "^5.0.5"
+  }
+}
