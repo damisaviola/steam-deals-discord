@@ -26,14 +26,14 @@ export function isValidDiscordWebhookUrl(url) {
  * @returns {Object} validated configuration
  */
 export function parseConfig(env = process.env) {
-  const minDiscountRaw = env.MIN_DISCOUNT !== undefined ? Number(env.MIN_DISCOUNT) : 50;
-  const minDiscount = Number.isFinite(minDiscountRaw) ? Math.max(0, Math.min(100, minDiscountRaw)) : 50;
+  const minDiscountRaw = env.MIN_DISCOUNT !== undefined ? Number(env.MIN_DISCOUNT) : 1;
+  const minDiscount = Number.isFinite(minDiscountRaw) ? Math.max(0, Math.min(100, minDiscountRaw)) : 1;
 
   const maxPriceRaw = env.MAX_PRICE !== undefined ? Number(env.MAX_PRICE) : 0;
   const maxPrice = Number.isFinite(maxPriceRaw) && maxPriceRaw >= 0 ? maxPriceRaw : 0;
 
-  const maxGamesRaw = env.MAX_GAMES !== undefined ? Number(env.MAX_GAMES) : 10;
-  const maxGames = Number.isFinite(maxGamesRaw) && maxGamesRaw > 0 ? Math.floor(maxGamesRaw) : 10;
+  const maxGamesRaw = env.MAX_GAMES !== undefined ? Number(env.MAX_GAMES) : 0;
+  const maxGames = Number.isFinite(maxGamesRaw) && maxGamesRaw >= 0 ? Math.floor(maxGamesRaw) : 0;
 
   const includeFreeGames = String(env.INCLUDE_FREE_GAMES || 'false').toLowerCase() === 'true';
 
@@ -90,8 +90,8 @@ export function validateConfig(config, { requireWebhook = false } = {}) {
     errors.push('MAX_PRICE cannot be negative.');
   }
 
-  if (config.filter.maxGames <= 0) {
-    errors.push('MAX_GAMES must be greater than 0.');
+  if (config.filter.maxGames < 0) {
+    errors.push('MAX_GAMES cannot be negative (set 0 for unlimited).');
   }
 
   if (errors.length > 0) {

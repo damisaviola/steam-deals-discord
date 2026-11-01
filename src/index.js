@@ -43,9 +43,9 @@ export async function run() {
     }
 
     logger.info(`Configuration:`);
-    logger.info(`- Min Discount       : ${config.filter.minDiscount}%`);
+    logger.info(`- Min Discount       : ${config.filter.minDiscount > 0 ? `${config.filter.minDiscount}%` : 'Semua Diskon (Tanpa Minimal)'}`);
     logger.info(`- Max Price          : ${config.filter.maxPrice > 0 ? `Rp${config.filter.maxPrice.toLocaleString('id-ID')}` : 'Tanpa Batas'}`);
-    logger.info(`- Max Games per Run  : ${config.filter.maxGames}`);
+    logger.info(`- Max Games per Run  : ${config.filter.maxGames > 0 ? config.filter.maxGames : 'Kirim Semua (Tanpa Batas)'}`);
     logger.info(`- Include Free Games : ${config.filter.includeFreeGames}`);
     logger.info(`- Regional Country   : ${config.steam.countryCode}`);
     logger.info(`- Language           : ${config.steam.language}`);

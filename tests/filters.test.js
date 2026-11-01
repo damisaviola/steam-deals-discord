@@ -163,7 +163,7 @@ describe('Filters, Formatters & Config Tests', () => {
     it('should throw when validateConfig encounters invalid values', () => {
       const invalidConfig = {
         discord: { webhookUrl: 'invalid-url' },
-        filter: { minDiscount: 150, maxPrice: -500, maxGames: 0 }
+        filter: { minDiscount: 150, maxPrice: -500, maxGames: -1 }
       };
 
       expect(() => validateConfig(invalidConfig, { requireWebhook: true })).toThrow(/Configuration Validation Error/);
