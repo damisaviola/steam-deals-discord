@@ -49,7 +49,7 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           MIN_DISCOUNT: ${{ vars.MIN_DISCOUNT || '50' }}
-          MAX_PRICE: ${{ vars.MAX_PRICE || '200000' }}
+          MAX_PRICE: ${{ vars.MAX_PRICE || '0' }}
           MAX_GAMES: ${{ vars.MAX_GAMES || '10' }}
           INCLUDE_FREE_GAMES: ${{ vars.INCLUDE_FREE_GAMES || 'false' }}
           CI: 'true'

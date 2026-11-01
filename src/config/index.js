@@ -29,7 +29,7 @@ export function parseConfig(env = process.env) {
   const minDiscountRaw = env.MIN_DISCOUNT !== undefined ? Number(env.MIN_DISCOUNT) : 50;
   const minDiscount = Number.isFinite(minDiscountRaw) ? Math.max(0, Math.min(100, minDiscountRaw)) : 50;
 
-  const maxPriceRaw = env.MAX_PRICE !== undefined ? Number(env.MAX_PRICE) : 200000;
+  const maxPriceRaw = env.MAX_PRICE !== undefined ? Number(env.MAX_PRICE) : 0;
   const maxPrice = Number.isFinite(maxPriceRaw) && maxPriceRaw >= 0 ? maxPriceRaw : 0;
 
   const maxGamesRaw = env.MAX_GAMES !== undefined ? Number(env.MAX_GAMES) : 10;
